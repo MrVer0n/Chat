@@ -1,0 +1,31 @@
+version:  '3.7'
+
+services:
+  node_main_admin:
+    container_name: node_main_admin
+    build:
+      dockerfile: ../docker/dockerfile/node/Dockerfile.prod
+      context: ../app
+    restart: on-failure
+    networks:
+      - yourtar
+    volumes:
+      - ../app:/var/www/app
+
+  nginx_main_admin:
+    container_name: nginx_main_admin
+    image: nginx:latest
+    restart: on-failure
+    networks:
+      - yourtar
+    expose:
+      - "80"
+    volumes:
+      - ../app:/var/www/app
+      - ./logs/nginx:/var/log/nginx
+      - ./config/nginx:/etc/nginx/conf.d
+
+networks:
+  yourtar:
+    external:
+      name: yourtar

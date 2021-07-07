@@ -1,0 +1,13 @@
+version:  '3.7'
+
+services:
+  web:
+    container_name: web
+    build:
+      dockerfile: ../docker/dockerfile/node/Dockerfile
+      context: ../app
+    restart: on-failure
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../app:/var/www/app
