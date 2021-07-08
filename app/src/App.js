@@ -47,6 +47,12 @@ function Clikers(id){
       id: Name.id,
       title: Name.title,  
     }]))
+    setLoggerIn(isLoggedIn=1)
+    setA(a.map(todo=>{
+      todo.id=Name.id
+      todo.title=Name.title
+      return todo
+    }))
     setNewPer(NewPer.filter(Per=>Per.id!==Name.id))
   }
 
@@ -63,7 +69,7 @@ function Clikers(id){
     return <div><Chat onClick={a} OnPep={Pepap}></Chat></div>
   }
   if(isLoggedIn===2){//запуск окна с не активными чатами
-    return (<NewPerson OnPep={Pepap} Persone={NewPer} AddPersone={AddPer}></NewPerson>)
+    return (<NewPerson OnPep={Pepap} Persone={NewPer} AddPersone={AddPer} PersonChat={todos}></NewPerson>)
   }
 }
 
