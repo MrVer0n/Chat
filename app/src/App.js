@@ -8,25 +8,38 @@ function App(props) {
 
   //Пока нет api
 const [todos, setTodos] = React.useState([
-  {id: 1, title: 'Игорь'},
-  {id: 2, title: 'Вася'},
-  {id: 3, title: 'Избранное'},
+  {id: 1, title: 'Гуров Игорь Андреевич'},
+  {id: 2, title: 'Смирнов Егор Егорович'},
+  {id: 3, title: 'Беляев Глеб Тимурович'},
   {id: 4, title: 'Петя'},
-  {id: 5, title: 'Петя'}
+  {id: 5, title: 'Мария'},
+  {id: 6, title: 'Николай'},
+  {id: 7, title: 'Татьяна'},
+  {id: 8, title: 'Иван'},
 ])
 
   //Пока нет api
 const [NewPer, setNewPer] = React.useState([
-  {id: 6, title: 'Хлебум'},
-  {id: 7, title: 'Тигрий'},
-  {id: 8, title: 'Артём'},
-  {id: 9, title: 'Яросланва'},
-  {id: 10, title: 'Ярослава'}
+  {id: 9, title: 'Куликов Тимур Тимофеевич'},
+  {id: 10, title: 'Дмитриева Мия Константиновна'},
+  {id: 11, title: 'Николаев Михаил Валерьевич'},
+  {id: 12, title: 'Яросланва'},
+  {id: 13, title: 'Тигрий'},
+  {id: 14, title: 'Хлебум'},
+  {id: 15, title: 'Ольга'},
+  {id: 16, title: 'Анастасия'},
+  {id: 17, title: 'Владислав'},
+  {id: 18, title: 'Артём'},
+  {id: 19, title: 'Олег'},
+  {id: 20, title: 'Дарья'},
 ])
   //Пока нет api
 const [a,setA] = React.useState([
   {id: 5, state:true, title: 'Имя'}
 ])
+// const [allmasseg,setAllmesseg] = React.useState([
+//   {id: 1, state:true, title: ''}
+// ])
 
 function Clikers(id){
   setA( a.map(todo=> {

@@ -3,8 +3,7 @@ import React from 'react'
 import Button from './ButtonTest'
 function Test(props, nani){
   return (
-    <div >
-      <h1 className='Wrapper'>    
+    <div className="one" style={{height: '97vh', overflow: 'auto' }}>       
         {props.fac.map(todo=>{
           return (
          // <p>
@@ -14,10 +13,8 @@ function Test(props, nani){
          // </p>
             <Button Name={todo} key={todo.id} Click={props.onClick} ></Button>
          )
-        })}   
-      </h1>  
+        })}  
     </div>
   )
 }
-
 export default Test;

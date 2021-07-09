@@ -12,7 +12,7 @@ function Chat(props){
  //let textOut= React.createRef();
  const [mes, setMes] = React.useState([
   {
-    mes: 'Вошел в чат!'
+    mes: 'Уже здесь!'
   }
   ])
 
@@ -44,15 +44,13 @@ return (
   <div style={{height: 600, overflow: 'auto' }} className="one ">
 
 <div  className="center">
-<table>
   {mes.map((text)=>{
-    return <tr>{props.onClick.map(toso=>{
+    return <p>{props.onClick.map(toso=>{
      return  toso.title
     })}:
-    <td>{text.mes}</td>
-    </tr>
+    <br/>{text.mes}
+    </p>
   })}
-</table>
 </div>
 
   </div>
@@ -87,4 +85,15 @@ return (
 //   return messages.map((message, i) => <Message {...message} key={i}/>);
 // }
 
+/* <div  className="center">
+<table>
+  {mes.map((text)=>{
+    return <tr>{props.onClick.map(toso=>{
+     return  toso.title
+    })}:
+    <td>{text.mes}</td>
+    </tr>
+  })}
+</table>
+</div> */
 export default Chat;

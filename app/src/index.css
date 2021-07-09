@@ -16,11 +16,10 @@ code {
   margin-top: 5px;
   margin-left: 400px;
   margin-right: 400px;
-  display: flex;
   font-size: 8px;
   box-sizing: border-box;
   font-family: sans-serif;
-  width: 100%;
+  width: a;
   height: 100%;
   position: relative;
   max-width: 1102px;
@@ -62,7 +61,7 @@ code {
 }
 
 .Wrapper4{
-  width: 950px;
+  width: 900px;
   height: 50px;
   resize: none;
   border: 0px solid #130000;
@@ -99,7 +98,27 @@ border: 0px solid #130000;
   height: 300px;
   font-size: 8px;
 }
-
+.user{
+  background-color: rgb(255, 255, 255);
+  border: 2px solid #130000;
+  border-radius: 10px;
+  width: 1000px;
+  height: 100px;
+}
+.user:hover {
+  background-color: rgb(141, 182, 46);
+  border: 2px solid #130000;
+  border-radius: 10px;
+  width: 1000px;
+  height: 100px;
+}
+.user:active {
+  background-color: rgb(120, 155, 40);
+  border: 2px solid #130000;
+  border-radius: 10px;
+  width: 1000px;
+  height: 100px;
+}
 .rm{
   background-color: red;
   font-size: 35px; 
