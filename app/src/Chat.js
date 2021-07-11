@@ -10,21 +10,19 @@ import React from 'react'
 function Chat(props){
  let textInput= React.createRef();
  //let textOut= React.createRef();
- const [mes, setMes] = React.useState([
+ /*const [mes, setMes] = React.useState([
   {
     mes: 'Уже здесь!'
   }
   ])
 
  function Show(event){
-// alert(textInput.current.value);
-//alert(mes);
-//textOut.current.innerHTML = textInput.current.value
+
   setMes(
   mes.concat([{mes: textInput.current.value}]))
-  console.log(mes)
+
   textInput.current.value=''
-}
+}*/
 
 
 
@@ -44,12 +42,13 @@ return (
   <div style={{height: 600, overflow: 'auto' }} className="one ">
 
 <div  className="center">
-  {mes.map((text)=>{
-    return <p>{props.onClick.map(toso=>{
-     return  toso.title
-    })}:
-    <br/>{text.mes}
-    </p>
+  {props.MessageX.map((text)=>{
+    if(text.id[0]===props.onClick.map(todo=>{return todo.id})[0]){
+      return <p>{text.Name}:{text.message}</p>
+    }else{
+      console.log('Сообщение',text.id[0])
+      console.log('Пользователь',props.onClick.map((todo)=>{return (todo.id)})[0])
+    }
   })}
 </div>
 
@@ -60,7 +59,7 @@ return (
          <div className="">
   
            <textarea autoFocus className="Wrapper4" type="text" placeholder="Напишите сообщение..." rows="3" ref={textInput}></textarea>
-            <input   onClick={Show} type="button" value="Отправить"></input>
+            <input   onClick={()=>props.ReadMessange(textInput.current.value,props.onClick)} type="button" value="Отправить"></input>
          </div>
          <div className="">
          <form encType="multipart/form-data" method="POST" role="presentation">
