@@ -67,14 +67,14 @@ function Clikers(id){
     
   }
 
-  const [ChatAll, setChatAll]=React.useState([{
-    id: 0,
-    message:'Тест',
-    Name:'Тест'
-  }])
-  const [ChatPersone, setChatPersone]=React.useState([
-    {id: 0, message:'Тест', Name: 'Какий'}
+  // const [ChatAll, setChatAll]=React.useState([{
+  //   id: 0,
+  //   message:'Тест',
+  //   Name:'Тест'
+  // }])
   
+  const [ChatPersone, setChatPersone]=React.useState([
+    {key: 1,  id: 0, message:'Тест', Name: 'Какий'}
   ])
 
 function ShowMessange(Messange,id){
