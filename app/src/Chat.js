@@ -44,7 +44,7 @@ return (
 <div  className="center">
   {props.MessageX.map((text)=>{
     if(text.id[0]===props.onClick.map(todo=>{return todo.id})[0]){
-      return <p>{text.Name}:{text.message}</p>
+      return <p>{text.Name}:<br/>{text.message}</p>
     }else{
       console.log('Сообщение',text.id[0])
       console.log('Пользователь',props.onClick.map((todo)=>{return (todo.id)})[0])
