@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 //import PropTypes from 'prop-types'
 //import Test from './test';
 //import App from './App';
@@ -27,12 +27,23 @@ function Chat(props){
 
 
 //<p ref={mes}></p>
-  
+const messagesEnd = useRef(null);
+const scrollToBottom = () => {
+  if (!messagesEnd) {
+    return;
+  }
+  messagesEnd.current.scrollIntoView({behavior: 'smooth'});
+};
+
+useEffect(() => {
+  scrollToBottom();
+});
+
 return (   
   //true
 <div className="">
   <div className="Wrapper5 center">
-    {props.onClick.map(toso=>{
+    {props.onClick.map((toso)=>{
       return toso.id
     })} {props.onClick.map(toso=>{
       return toso.title
@@ -51,7 +62,7 @@ return (
     }
   })}
 </div>
-
+<div ref={messagesEnd}></div>
   </div>
     <div className="Wrapper2">
      <div className="">
