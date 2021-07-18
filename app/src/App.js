@@ -1,11 +1,11 @@
 import './App.css';
-import React from "react";
+import React, { useState } from "react";
 import Test from "./test"
 import Chat from "./Chat";
 import NewPerson from "./NewPerson";
 
 function App(props) {
-
+ 
   //Пока нет api
 const [todos, setTodos] = React.useState([
   {id: 0, title: 'Гуров Игорь Андреевич'},
