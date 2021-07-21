@@ -8,14 +8,14 @@ function App(props) {
  
   //Пока нет api
 const [todos, setTodos] = React.useState([
-  {id: 0, title: 'Гуров Игорь Андреевич'},
-  {id: 2, title: 'Смирнов Егор Егорович'},
-  {id: 3, title: 'Беляев Глеб Тимурович'},
-  {id: 4, title: 'Петя'},
-  {id: 5, title: 'Мария'},
-  {id: 6, title: 'Николай'},
-  {id: 7, title: 'Татьяна'},
-  {id: 8, title: 'Иван'},
+  {id: 0, title: 'Гуров Игорь Андреевич', lastMeassage:''},
+  {id: 2, title: 'Смирнов Егор Егорович', lastMeassage:''},
+  {id: 3, title: 'Беляев Глеб Тимурович', lastMeassage:''},
+  {id: 4, title: 'Петя', lastMeassage:''},
+  {id: 5, title: 'Мария', lastMeassage:''},
+  {id: 6, title: 'Николай', lastMeassage:''},
+  {id: 7, title: 'Татьяна', lastMeassage:''},
+  {id: 8, title: 'Иван', lastMeassage:''},
 ])
 
   //Пока нет api
@@ -85,6 +85,13 @@ function ShowMessange(Messange,id){
       message:Messange
     }])
     )
+setTodos(todos.map(todo=>{
+  console.log(id.map(todo=>{return todo.id})[0],'Айди пользователя:',todo.id)
+  if(id.map(todo=>{return todo.id})[0]===todo.id){
+    todo.lastMeassage=Messange
+  }
+  return todo
+}))
     
   
 }

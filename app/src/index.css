@@ -79,6 +79,16 @@ code {
   width: auto;
   height: 30px;
 }
+.Wrapper6 {
+  background-color: rgb(255, 255, 255);
+  
+  margin-left: 400px;
+  margin-right: 400px;
+  
+  
+  width: auto;
+  height: 30px;
+}
 
 .BGWHITE{
 background-color: rgb(255, 255, 255);
@@ -133,8 +143,7 @@ border: 0px solid #130000;
   font-size: 25px;
 }
 .drop-area{
-  width: 80vw;
-  height: 80vh;
+ 
   border: 5px dashed black;
   display: flex;
   align-items: center;
