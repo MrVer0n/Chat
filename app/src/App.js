@@ -101,7 +101,7 @@ setTodos(todos.map(todo=>{
 
   let [isLoggedIn,setLoggerIn] = React.useState(0);
   if (isLoggedIn===0) {//запуск окна с активными чатами
-    return <div><button onClick={()=>setLoggerIn(isLoggedIn=2)}>Добавить нового пользователя</button>{todos.length ? <Test  fac={todos} onClick={Clikers}></Test>
+    return <div><button class="waves-effect waves-light btn users-activ" onClick={()=>setLoggerIn(isLoggedIn=2)}>Добавить нового пользователя</button>{todos.length ? <Test  fac={todos} onClick={Clikers}></Test>
     :<p>У вас нет пользоватлей</p>}</div>
   }
   if(isLoggedIn===1){//запуск окна с чатом

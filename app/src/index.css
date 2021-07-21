@@ -12,102 +12,69 @@ code {
     monospace;
 }
 
-.one{
-  margin-top: 5px;
-  margin-left: 400px;
-  margin-right: 400px;
-  font-size: 8px;
-  box-sizing: border-box;
-  font-family: sans-serif;
-  width: a;
-  height: 100%;
-  position: relative;
-  max-width: 1102px;
-  min-height: 640px;
+.chat {
+  display: flex;
+  height: 70vh;
+  width: 100%;
+}
+
+.chat-users {
+  width: 300px;
+  border: 2px solid #e0e0e0;
+  margin: 0;
+}
+.actions {
+  border: 2px solid #e0e0e0;
+  height: 30vh;
   padding: 20px;
-  border: 2px solid rgb(0, 0, 0);
-  box-sizing: border-box;
 }
 
-.Wrapper {
+.chat-messages {
+  border: 2px solid #e0e0e0;
+  width: 100%;
+  padding: 15px;
+  overflow-y: auto;
+  height: 600;
+}
+.message-content {
+border-radius: 3px;
+padding: 6px 9px;
+font-size: 16px;
+margin-bottom:  10px;
+width: auto;
+}
+
+.get-users{
   background-color: rgb(255, 255, 255);
-  padding: 200px;
-  margin-left: 400px;
-  margin-right: 400px;
-  border-width: thick;
-  border: 2px solid #130000;
-  border-radius: 10px;
-  margin-top: 10px;
-  width: auto;
-  height: 300px;
+  border: 0px solid #e0e0e0;
+  width: 180%;
+  }
+
+.users-mess{
+  height: 65px;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.Wrapper2{
-  background-color: rgb(255, 255, 255);
-  padding: 10px;
-  margin-left: 400px;
-  margin-right: 400px;
-  border-width: thick;
-  border: 2px solid #130000;
-  border-radius: 10px;
-  margin-top: 5px;
-  width: auto;
-  height: 50px;
+.users-activ{
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
-.Wrapper3{
-  width: 100px;
-  height: 80px;
+.button-add-users{
+  margin-top: 20px;
+  margin-left: 100px;
 }
 
-.Wrapper4{
-  width: 900px;
-  height: 50px;
-  resize: none;
-  border: 0px solid #130000;
+.button-add-users-chat{
+  width: 100%;
 }
 
-.Wrapper5 {
-  background-color: rgb(255, 255, 255);
-  padding: 20px;
-  margin-left: 400px;
-  margin-right: 400px;
-  border-width: thick;
-  border: 2px solid #130000;
-  border-radius: 10px;
-  margin-top: 100px;
-  width: auto;
-  height: 30px;
-}
-.Wrapper6 {
-  background-color: rgb(255, 255, 255);
-  
-  margin-left: 400px;
-  margin-right: 400px;
-  
-  
-  width: auto;
-  height: 30px;
-}
 
-.BGWHITE{
-background-color: rgb(255, 255, 255);
-border: 0px solid #130000;
-}
 
-.Chatwin {
-  background-color: rgb(255, 255, 255);
-  padding: 20px;
-  margin-left: 400px;
-  margin-right: 400px;
-  border-width: thick;
-  border: 2px solid #130000;
-  border-radius: 10px;
-  margin-top: 10px;
-  width: auto;
-  height: 300px;
-  font-size: 8px;
-}
+
 .user{
   background-color: rgb(255, 255, 255);
   border: 2px solid #130000;
@@ -129,21 +96,8 @@ border: 0px solid #130000;
   width: 1000px;
   height: 100px;
 }
-.rm{
-  background-color: red;
-  font-size: 35px; 
-}
 
-.fx{
-  font-size: 25px;
-  margin-left: 25px;
-}
-
-.center{
-  font-size: 25px;
-}
 .drop-area{
- 
   border: 5px dashed black;
   display: flex;
   align-items: center;

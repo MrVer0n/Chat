@@ -1,9 +1,8 @@
 import React from 'react'
-//import PropTypes from 'prop-types'
 import Button from './ButtonTest'
 function Test(props, nani){
   return (
-    <div className="one" style={{height: '97vh', overflow: 'auto' }}>       
+    <div className="users-activ">       
         {props.fac.map(todo=>{
           return (
          // <p>
@@ -11,7 +10,7 @@ function Test(props, nani){
          //     Пользователь {todo.title}
          //   </button>
          // </p>
-            <Button Name={todo} key={todo.id} Click={props.onClick} ></Button>
+            <Button  Name={todo} key={todo.id} Click={props.onClick} ></Button>
          )
         })}  
     </div>
