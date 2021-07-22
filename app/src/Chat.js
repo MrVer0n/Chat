@@ -42,7 +42,7 @@ return (
     <div className="chat-users collection">
     <button className="waves-effect waves-light btn button-add-users-chat" onClick={()=>props.OnPep(0)}  type="button">Добавить пользователя</button>
     
-      <a className="collection-item">
+      <a href="/#" className="collection-item">
         {props.onClick.map((toso)=>{
           return ""//toso.id
        })} {props.onClick.map(toso=>{
@@ -55,7 +55,7 @@ return (
         <div className="message-content z-depth-1">
           {props.MessageX.map((text)=>{
             if(text.id[0]===props.onClick.map((todo)=>{return todo.id})[0]){
-              return <div> <p key= {k= k+1}>{text.Name}:<br/>{text.message}</p></div>
+              return <div key= {k= k+1}> <p>{text.Name}:<br/>{text.message}</p></div>
            }else{
               console.log('Сообщение',text.id[0])
               console.log('Пользователь',props.onClick.map((todo)=>{return (todo.id)})[0])
@@ -68,11 +68,11 @@ return (
     </div>    
   </div>
    <div className="actions">
-   <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <textarea ref={textInput} id="textarea1" class="materialize-textarea"></textarea>
+   <div className="row">
+      <form className="col s12">
+        <div className="row">
+          <div className="input-field col s12">
+            <textarea ref={textInput} id="textarea1" className="materialize-textarea"></textarea>
       {drag 
       ?<div  
           onDragStart={e=> dragStart(e)}
@@ -86,7 +86,7 @@ return (
           onDragOver={e=>dragStart(e)}
         >Перетащите файл для отправки</div>
       }
-            <label for="textarea1">Введите сообщение:</label>
+            <label id="textarea1">Введите сообщение:</label>
       </div>
         </div>
       </form>

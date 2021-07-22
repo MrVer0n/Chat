@@ -25,7 +25,7 @@ code {
 }
 .actions {
   border: 2px solid #e0e0e0;
-  height: 30vh;
+  height: 23vh;
   padding: 20px;
 }
 
@@ -72,6 +72,10 @@ width: auto;
   width: 100%;
 }
 
+.mas-users {
+  height: 93vh;
+  overflow: auto 
+}
 
 
 

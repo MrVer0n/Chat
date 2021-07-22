@@ -1,8 +1,10 @@
 import './App.css';
-import React, { useState } from "react";
-import Test from "./test"
+import React from "react";
+import Test from "./Users"
 import Chat from "./Chat";
 import NewPerson from "./NewPerson";
+import logo from './logo.png'
+
 
 function App(props) {
  
@@ -91,24 +93,53 @@ setTodos(todos.map(todo=>{
     todo.lastMeassage=Messange
   }
   return todo
-}))
-    
-  
-}
-
-
-
+}))}
 
   let [isLoggedIn,setLoggerIn] = React.useState(0);
   if (isLoggedIn===0) {//запуск окна с активными чатами
-    return <div><button class="waves-effect waves-light btn users-activ" onClick={()=>setLoggerIn(isLoggedIn=2)}>Добавить нового пользователя</button>{todos.length ? <Test  fac={todos} onClick={Clikers}></Test>
+    return <div>  
+      <nav>
+       <div className="nav-wrapper">
+       <img  src={logo} style={{height: 60, white :60 }} alt="fireSpot"/>
+       <a href="/#" className="brand-logo">Существующие чаты</a>
+         <ul id="nav-mobile" className="right hide-on-med-and-down">
+           <li><a href="/#" onClick={()=>setLoggerIn(isLoggedIn=2)}>Новый чат</a></li>
+            <li><a href="/#" onClick={()=>setLoggerIn(isLoggedIn=0)}>Существующие чаты</a></li>
+            <li><a href="/#" onClick={()=>setLoggerIn(isLoggedIn=1)}>Активный чат</a></li>
+        </ul>
+      </div>
+  </nav>
+  {todos.length ? <div className="mas-users"><Test  fac={todos} onClick={Clikers}></Test></div>
     :<p>У вас нет пользоватлей</p>}</div>
   }
   if(isLoggedIn===1){//запуск окна с чатом
-    return <div><Chat onClick={a} MessageX={ChatPersone} OnPep={Pepap} ReadMessange={ShowMessange}  ></Chat></div>
+    return <div>
+           <nav>
+       <div className="nav-wrapper">
+       <img  src={logo} style={{height: 60, white :60 }} alt="fireSpot"/>
+       <a href="/#" className="brand-logo">Активный чат</a>
+         <ul id="nav-mobile" className="right hide-on-med-and-down">
+           <li><a href="/#" onClick={()=>setLoggerIn(isLoggedIn=2)}>Новый чат</a></li>
+            <li><a href="/#" onClick={()=>setLoggerIn(isLoggedIn=0)}>Существующие чаты</a></li>
+            <li><a href="/#" onClick={()=>setLoggerIn(isLoggedIn=1)}>Активный чат</a></li>
+        </ul>
+      </div>
+  </nav>
+      <Chat onClick={a} MessageX={ChatPersone} OnPep={Pepap} ReadMessange={ShowMessange}  ></Chat></div>
   }
   if(isLoggedIn===2){//запуск окна с не активными чатами
-    return (<NewPerson OnPep={Pepap} Persone={NewPer} AddPersone={AddPer} ></NewPerson>)
+    return  <div>     <nav>
+    <div className="nav-wrapper">
+    <img  src={logo} style={{height: 60, white :60 }} alt="fireSpot"/>
+      <a href="/#" className="brand-logo">Начать чат</a>
+      <ul id="nav-mobile" className="right hide-on-med-and-down">
+        <li><a href="/#" onClick={()=>setLoggerIn(isLoggedIn=2)}>Новый чат</a></li>
+         <li><a href="/#" onClick={()=>setLoggerIn(isLoggedIn=0)}>Существующие чаты</a></li>
+         <li><a href="/#" onClick={()=>setLoggerIn(isLoggedIn=1)}>Активный чат</a></li>
+     </ul>
+   </div>
+</nav> <div className="mas-users"><NewPerson OnPep={Pepap} Persone={NewPer} AddPersone={AddPer} ></NewPerson></div>
+</div>
   }
 }
 
