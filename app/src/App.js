@@ -42,7 +42,7 @@ const [a,setA] = React.useState([
 // const [allmasseg,setAllmesseg] = React.useState([
 //   {id: 1, state:true, title: ''}
 // ])
-
+const [autorizeyt,setAutorizeyt]=React.useState('Артём Ктотович')
 
 function Clikers(id){
   setA( a.map(todo=> {
@@ -125,7 +125,7 @@ setTodos(todos.map(todo=>{
         </ul>
       </div>
   </nav>
-      <Chat onClick={a} MessageX={ChatPersone} OnPep={Pepap} ReadMessange={ShowMessange}  ></Chat></div>
+      <Chat onClick={a} MessageX={ChatPersone} OnPep={Pepap} ReadMessange={ShowMessange} Me={autorizeyt} ></Chat></div>
   }
   if(isLoggedIn===2){//запуск окна с не активными чатами
     return  <div>     <nav>
