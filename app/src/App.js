@@ -42,7 +42,9 @@ const [a,setA] = React.useState([
 // const [allmasseg,setAllmesseg] = React.useState([
 //   {id: 1, state:true, title: ''}
 // ])
-const [autorizeyt,setAutorizeyt]=React.useState('Артём Ктотович')
+const [autorizeyt]=React.useState('Артём Ктотович')
+
+//const [autorizeyt,setAutorizeyt]=React.useState('Артём Ктотович')
 
 function Clikers(id){
   setA( a.map(todo=> {
