@@ -37,13 +37,13 @@ const [NewPer, setNewPer] = React.useState([
 ])
   //Пока нет api
 const [a,setA] = React.useState([
-  {id: 5, state:true, title: 'Имя'}
+  {id: 5, state:true, title: 'Артём Ктотович'}
 ])
 // const [allmasseg,setAllmesseg] = React.useState([
 //   {id: 1, state:true, title: ''}
 // ])
 
-
+const [autorizeyt,setAutorizeyt]=React.useState('Артём Ктотович')
 function Clikers(id){
   setA( a.map(todo=> {
     //if(todo.id ===id){
@@ -125,7 +125,7 @@ setTodos(todos.map(todo=>{
         </ul>
       </div>
   </nav>
-      <Chat onClick={a} MessageX={ChatPersone} OnPep={Pepap} ReadMessange={ShowMessange}  ></Chat></div>
+      <Chat onClick={a} MessageX={ChatPersone} OnPep={Pepap} ReadMessange={ShowMessange}  Me={autorizeyt}></Chat></div>
   }
   if(isLoggedIn===2){//запуск окна с не активными чатами
     return  <div>     <nav>
