@@ -1,14 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
-
 function Chat(props){
 let k=0;
 let textInput= React.createRef();
-
-function Show(event){
- // if (event.keyCode === 13) {
-    textInput.current.value=''
-//}
-}
 const messagesEnd = useRef(null);
 const scrollToBottom = () => {
   if (!messagesEnd) {
@@ -19,7 +12,6 @@ const scrollToBottom = () => {
 useEffect(() => {
   scrollToBottom();
 });
-
 const [drag, setDrag]=useState(false)
 function dragStart(e){
   e.preventDefault()
@@ -35,6 +27,86 @@ function dragDrop(e){
   console.log(files)
   setDrag(false)
 }
+
+function Show(event){
+  
+ // props.onClick.map((toso)=>{
+ // socket.send(JSON.stringify({
+ //   id: toso.id,
+   // method: "write",
+ // }))
+  textInput.current.value=''
+}
+
+
+
+// const [mes, setMes] = useState([])
+// function Show(event){
+//  // if (event.keyCode === 13) {
+//    mes.push(textInput.current.value)
+//    console.log(mes);
+//    textInput.current.value=''
+//    const socket = new WebSocket('ws://localhost:4000/')
+//   props.onClick.map((toso)=>{
+//   socket.onopen = () => {
+//    // console.log("Подключено",toso.id,toso.title);
+//    socket.send(JSON.stringify({
+//      id: toso.id,
+//      username: mes,
+//      method: "connection"
+//     }))
+//   }
+// return null
+// })
+// socket.onmessage = (event) => {
+//   let msg = JSON.parse(event.data)
+//         writeMessage(msg)
+   
+// }
+  // props.MessageX.map((text)=>{
+ ////   if(text.id[0]===props.onClick.map((todo)=>{return todo.id})[0]){
+//text.message = msg.username
+   // }
+//console.log(); 
+  //return null
+  //})
+//}
+//}
+
+// function writeMessage(msg) {
+//  msg.username.map( (ms) => {
+//     console.log(ms); 
+//   })
+    
+//   //return null
+//   //})
+// }
+function print(event) {
+  const socket = new WebSocket('ws://localhost:4000/')
+  socket.onopen = () => {
+    //console.log('Connect');
+    props.MessageX.map((text)=>{
+      if(text.id[0]===props.onClick.map((todo)=>{return todo.id})[0]){
+        props.onClick.map((toso)=>{
+    socket.send(JSON.stringify({
+      id:toso.id,
+      textmessage: text.message,
+      method: "connection"
+    }))})
+  }
+  })
+  socket.onmessage = (event) => {
+    let msg =JSON.parse(event.data)
+    console.log(msg);
+       // console.log(`User id ${msg.id} connected`);
+        //console.log(msg.textmessage);
+       
+       
+      } 
+    
+  }
+}
+
 
 return (  
   <div className="all"> 
@@ -53,12 +125,13 @@ return (
     <div className="chat-messages"> 
       <div className="message">
         <div className="message-content z-depth-1">
-          {props.MessageX.map((text)=>{
+        {props.MessageX.map((text)=>{
             if(text.id[0]===props.onClick.map((todo)=>{return todo.id})[0]){
-              return <div key= {k= k+1}> <p>{props.Me}:<br/>{text.message}</p></div>
+              return <div key= {k= k+1}> <p>{props.Me}:<br/>{text.message}</p></div>   
            }else{
-              console.log('Сообщение',text.id[0])
-              console.log('Пользователь',props.onClick.map((todo)=>{return (todo.id)})[0])
+           // console.log('Сообщение',text.message)
+              //console.log('Сообщение',text.id[0])
+              //console.log('Пользователь',props.onClick.map((todo)=>{return (todo.id)})[0])
            }
            return null;
          })}

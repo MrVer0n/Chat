@@ -4,12 +4,26 @@
     // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "pwa-chrome",
-            "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
-        }
+   
+            {
+                "type": "pwa-chrome",
+                "request": "launch",
+                "name": "Launch Chrome against localhost",
+                "url": "http://localhost:9222",
+                "runtimeExecutable": "C:\\Users\\artem\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe",
+                "runtimeArgs": [
+                    "--remote-debugging-port=9222",
+                    "--user-data-dir=remote-profile"
+                ],
+                "port": 9222,
+                "webRoot": "${workspaceFolder}"
+            }
+        // {
+        //     "type": "pwa-chrome",
+        //     "request": "launch",
+        //     "name": "Launch Chrome against localhost",
+        //     "url": "http://localhost:8080",
+        //     "webRoot": "${workspaceFolder}"
+        // }
     ]
 }

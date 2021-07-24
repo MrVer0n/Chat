@@ -42,7 +42,7 @@ const [a,setA] = React.useState([
 // const [allmasseg,setAllmesseg] = React.useState([
 //   {id: 1, state:true, title: ''}
 // ])
-const [autorizeyt]=React.useState('Артём Ктотович')
+const [autorizeyt]=React.useState('This Login Name')
 
 //const [autorizeyt,setAutorizeyt]=React.useState('Артём Ктотович')
 
@@ -82,24 +82,41 @@ function Clikers(id){
   ])
 
 function ShowMessange(Messange,id){
-  setChatPersone(
-    ChatPersone.concat([{
-      id: id.map(todo=>{return todo.id}),
-      Name:id.map(todo=>{return todo.title}),
-      message:Messange
-    }])
-    )
-setTodos(todos.map(todo=>{
-  console.log(id.map(todo=>{return todo.id})[0],'Айди пользователя:',todo.id)
-  if(id.map(todo=>{return todo.id})[0]===todo.id){
-    todo.lastMeassage=Messange
-  }
-  return todo
-}))}
+  //const socket = new WebSocket('ws://localhost:4000/')
+ // socket.onopen = () => {
+    //console.log('Connect');
+  //  socket.send(JSON.stringify({
+   //   id:id[0].id,
+   //   textmessage: Messange,
+   //   method: "connection"
+  //  }))
+  //}
+  //socket.onmessage = (event) => {
+   // let msg =JSON.parse(event.data)
+       // console.log(`User id ${msg.id} connected`);
+        //console.log(msg.textmessage);
+       
+        setChatPersone(
+          ChatPersone.concat([{
+            id: id.map(todo=>{return todo.id}),
+            Name:id.map(todo=>{return todo.title}),
+            message:Messange
+          }])
+          )
+      setTodos(todos.map(todo=>{
+        //console.log(id.map(todo=>{return todo.id})[0],'Айди пользователя:',todo.id)
+        if(id.map(todo=>{return todo.id})[0]===todo.id){
+          todo.lastMeassage=Messange
+        }
+        return todo
+      })) 
+    
+  //}
+}
 
   let [isLoggedIn,setLoggerIn] = React.useState(0);
   if (isLoggedIn===0) {//запуск окна с активными чатами
-    return <div>  
+    return <div> 
       <nav>
        <div className="nav-wrapper">
        <img  src={logo} style={{height: 60, white :60 }} alt="fireSpot"/>

@@ -14,6 +14,9 @@ app.ws('/',(ws, req) =>{
             case "connection":
                 connectionHend(ws, msg)
                 break
+            case "write":
+                broadcastConect(ws, msg)
+                break
         }
     })
 })
@@ -25,11 +28,14 @@ app.listen(PORT, () => {
 const connectionHend = (ws, msg) => {
     ws.id = msg.id
     broadcastConect(ws, msg)
+    console.log(ws.id, msg.id);
 }
 const broadcastConect = (ws, msg) => {
     aWss.clients.forEach(client => {
+        //console.log(msg.id,client.id)
         if (client.id === msg.id) {
-            client.send(`Users ${msg.username} conected`)
+            client.send(JSON.stringify(msg))
+            //client.send(`Users id ${msg.id} write`)
         }
     })
 }
