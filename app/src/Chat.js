@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
+
 function Chat(props){
 let k=0;
 let textInput= React.createRef();
@@ -81,38 +82,51 @@ function Show(event){
 //   //return null
 //   //})
 // }
-function print(event) {
-  const socket = new WebSocket('ws://localhost:4000/')
-  socket.onopen = () => {
-    //console.log('Connect');
-    props.MessageX.map((text)=>{
-      if(text.id[0]===props.onClick.map((todo)=>{return todo.id})[0]){
-        props.onClick.map((toso)=>{
-    socket.send(JSON.stringify({
-      id:toso.id,
-      textmessage: text.message,
-      method: "connection"
-    }))})
-  }
-  })
-  socket.onmessage = (event) => {
-    let msg =JSON.parse(event.data)
-    console.log(msg);
-       // console.log(`User id ${msg.id} connected`);
-        //console.log(msg.textmessage);
+
+
+// function print(event) {
+//   const socket = new WebSocket('ws://localhost:4000/')
+//   socket.onopen = () => {
+//     //console.log('Connect');
+//     props.MessageX.map((text)=>{
+//       if(text.id[0]===props.onClick.map((todo)=>{return todo.id})[0]){
+//         props.onClick.map((toso)=>{
+//     socket.send(JSON.stringify({
+//       id:toso.id,
+//       textmessage: text.message,
+//       method: "connection"
+//     }))})
+//   }
+//   })
+//   socket.onmessage = (event) => {
+//     let msg =JSON.parse(event.data)
+//     console.log(msg);
+//        // console.log(`User id ${msg.id} connected`);
+//         //console.log(msg.textmessage);
        
        
-      } 
+//       } 
     
-  }
-}
+//   }
+// }
+// React.useEffect(() =>{
+//   const socket = new WebSocket('ws://localhost:4000/')
+//   props.onClick.map((toso)=>{
+//     console.log(toso.id);
+//  })
+//  props.MessageX.map((text)=>{
+  
+//    console.log(text.message);  
+ 
+//  })
+// })
 
 
 return (  
   <div className="all"> 
   <div className="chat">
     <div className="chat-users collection">
-    <button className="waves-effect waves-light btn button-add-users-chat" onClick={()=>props.OnPep(0)}  type="button">Добавить пользователя</button>
+    <button className="waves-effect waves-light btn button-add-users-chat" onClick={()=>{props.OnPep(0)}}  type="button">Добавить пользователя</button>
     
       <a href="/#" className="collection-item">
         {props.onClick.map((toso)=>{
@@ -127,13 +141,14 @@ return (
         <div className="message-content z-depth-1">
         {props.MessageX.map((text)=>{
             if(text.id[0]===props.onClick.map((todo)=>{return todo.id})[0]){
-              return <div key= {k= k+1}> <p>{props.Me}:<br/>{text.message}</p></div>   
+              console.log('Сообщение',text.message)
+             return <div key= {k= k+1}> <p>{props.Me}:<br/>{text.message}</p></div>   
            }else{
            // console.log('Сообщение',text.message)
               //console.log('Сообщение',text.id[0])
               //console.log('Пользователь',props.onClick.map((todo)=>{return (todo.id)})[0])
            }
-           return null;
+           return null
          })}
         </div>
         <div ref={messagesEnd}></div>

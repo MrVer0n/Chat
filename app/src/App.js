@@ -78,40 +78,46 @@ function Clikers(id){
   // }])
   
   const [ChatPersone, setChatPersone]=React.useState([
-    {key: 1,  id: 0, message:'Тест', Name: 'Какий'}
+    
   ])
 
 function ShowMessange(Messange,id){
-  //const socket = new WebSocket('ws://localhost:4000/')
- // socket.onopen = () => {
-    //console.log('Connect');
-  //  socket.send(JSON.stringify({
-   //   id:id[0].id,
-   //   textmessage: Messange,
-   //   method: "connection"
-  //  }))
-  //}
-  //socket.onmessage = (event) => {
-   // let msg =JSON.parse(event.data)
-       // console.log(`User id ${msg.id} connected`);
-        //console.log(msg.textmessage);
-       
-        setChatPersone(
-          ChatPersone.concat([{
-            id: id.map(todo=>{return todo.id}),
-            Name:id.map(todo=>{return todo.title}),
-            message:Messange
-          }])
-          )
-      setTodos(todos.map(todo=>{
-        //console.log(id.map(todo=>{return todo.id})[0],'Айди пользователя:',todo.id)
-        if(id.map(todo=>{return todo.id})[0]===todo.id){
-          todo.lastMeassage=Messange
-        }
-        return todo
-      })) 
-    
-  //}
+//  console.log(Messange);
+  const socket = new WebSocket('ws://localhost:4000/')
+  socket.onopen = () => {
+   // console.log('Write');
+    socket.send(JSON.stringify({
+      id:id[0].id,
+     textmessage: Messange,
+      method: "connection"
+    }))
+  }
+
+  socket.onmessage = (event) => {
+     let msg =JSON.parse(event.data)
+    console.log(msg.textmessage);
+    //console.log(`User id ${msg.id} connected`);  
+  
+ setChatPersone(
+   ChatPersone.concat([{
+      id: id.map(todo=>{return todo.id}),
+      Name:id.map(todo=>{return todo.title}),
+      message:msg.textmessage
+   }])
+  )
+  }
+ setTodos(todos.map(todo=>{
+   //console.log(id.map(todo=>{return todo.id})[0],'Айди пользователя:',todo.id)
+    if(id.map(todo=>{return todo.id})[0]===todo.id){
+      todo.lastMeassage=Messange
+    }
+   return todo
+ }))
+
+
+ // console.log(ChatPersone);
+  //<Chat onClick={a} MessageX={ChatPersone} OnPep={Pepap} ReadMessange={ShowMessange} Me={autorizeyt} ></Chat>
+ // <App isLoggedIn={1}/>
 }
 
   let [isLoggedIn,setLoggerIn] = React.useState(0);
