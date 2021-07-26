@@ -1,29 +1,53 @@
 const ws = require('ws');
-
+const PORT = process.env.PORT || 4000
 const wss = new ws.Server({
-    port: 5000,
-}, () => console.log(`Server started on 5000`))
-
+    port: PORT,
+}, () => console.log(`Server started on ${PORT}`))
+const Messages = [
+    {
+        username: "Name",
+        message: "Messange",
+        id: "Date.now()",
+        event: 'method'
+    }]
 
 wss.on('connection', function connection(ws) {
     ws.on('message', function (message) {
         message = JSON.parse(message)
         switch (message.event) {
             case 'message':
-                broadcastMessage(message)
+                broadcastMessage(ws, message)
                 break;
             case 'connection':
-                broadcastMessage(message)
+
+                connectionHend(ws, message)
                 break;
         }
     })
 })
+const connectionHend = (ws, message) => {
+    ws.id = message.id
+    console.log(ws.id, message.id);
+    broadcastMessage(ws, message)
 
-function broadcastMessage(message, id) {
+}
+function broadcastMessage(ws, message) {
+    Messages.push(
+        {
+            username: message.username,
+            message: message.message,
+            id: message.id,
+            event: message.event
+        }
+    )
+    console.log("Message:",Messages[Messages.length-1]);
     wss.clients.forEach(client => {
+        if (client.id === message.id) {    
         client.send(JSON.stringify(message))
+        }
     })
 }
+
 
 
 // const express = require('express')

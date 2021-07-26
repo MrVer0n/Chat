@@ -2,12 +2,12 @@ import React from 'react'
 function NewPerson(props){
     return(
         <div>
-                <div>{props.Persone.map(todo=>{
-                     return <div className="collection users-activ" key={todo.id}>
-                        <a href="/#" className="collection-item users-mess" key={todo.id} onClick={()=>props.AddPersone(todo)}>{todo.title}</a>
-                    </div>
-            })}</div>
-
+            <div>{props.Persone.map(todo=>{
+                return <div className="collection users-activ" key={todo.id}>
+                            <a href="/#" className="collection-item users-mess" key={todo.id} onClick={()=>props.AddPersone(todo)}>{todo.title}</a>
+                        </div>
+                })}
+            </div>
         </div>
     )
 }

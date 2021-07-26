@@ -1,6 +1,7 @@
 class AppState {
     socket = null
     sessionid = null
+    username = null
     // ChatPersone = [
     //     {
     //         id:"",
@@ -15,11 +16,17 @@ setSessionid(id) {
 setSocket(socket) {
     this.socket = socket
 }
+setusername(username) {
+    this.username = username
+}
 getSessionid() {
     return this.sessionid
 }
 getSocket() {
     return  this.socket
+}
+getusername() {
+    return this.username
 }
 
 // setChatPersone(id, username, textmessage, method){
