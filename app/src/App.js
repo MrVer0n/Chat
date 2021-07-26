@@ -4,11 +4,22 @@ import Test from "./Users"
 import Chat from "./Chat";
 import NewPerson from "./NewPerson";
 import logo from './logo.png'
+import AppState from "./AppState"
+
+
+import WebSock from "./WebSock";
+function Appi() {
+
+  return (
+      <div>
+        <WebSock/>
+      </div>
+  )
+}
 
 
 function App(props) {
- 
-  //Пока нет api
+
 const [todos, setTodos] = React.useState([
   {id: 0, title: 'Гуров Игорь Андреевич', lastMeassage:''},
   {id: 2, title: 'Смирнов Егор Егорович', lastMeassage:''},
@@ -20,7 +31,6 @@ const [todos, setTodos] = React.useState([
   {id: 8, title: 'Иван', lastMeassage:''},
 ])
 
-  //Пока нет api
 const [NewPer, setNewPer] = React.useState([
   {id: 9, title: 'Куликов Тимур Тимофеевич'},
   {id: 10, title: 'Дмитриева Мия Константиновна'},
@@ -35,7 +45,8 @@ const [NewPer, setNewPer] = React.useState([
   {id: 19, title: 'Олег'},
   {id: 20, title: 'Дарья'},
 ])
-  //Пока нет api
+
+
 const [a,setA] = React.useState([
   {id: 5, state:true, title: 'Имя'}
 ])
@@ -48,13 +59,9 @@ const [autorizeyt]=React.useState('This Login Name')
 
 function Clikers(id){
   setA( a.map(todo=> {
-    //if(todo.id ===id){
-      //console.log(todo.title)
       todo.id=id.id
       todo.title=id.title  
       setLoggerIn(isLoggedIn=1)
-      //console.log(isLoggedIn)
-    //}
     return todo
   }))
 }
@@ -70,42 +77,34 @@ function Clikers(id){
     setLoggerIn(isLoggedIn=pe)
     
   }
-
-  // const [ChatAll, setChatAll]=React.useState([{
-  //   id: 0,
-  //   message:'Тест',
-  //   Name:'Тест'
-  // }])
-  
-  const [ChatPersone, setChatPersone]=React.useState([
-    
-  ])
+  const [ChatPersone, setChatPersone]=React.useState([ ])
 
 function ShowMessange(Messange,id){
-//  console.log(Messange);
-  const socket = new WebSocket('ws://localhost:4000/')
-  socket.onopen = () => {
-   // console.log('Write');
-    socket.send(JSON.stringify({
-      id:id[0].id,
-     textmessage: Messange,
-      method: "connection"
-    }))
-  }
+  // const socket = new WebSocket('ws://localhost:4000/')
+  // AppState.setSocket(socket)
+  // AppState.setSessionid(id[0].id)
+  // socket.onopen = () => {
+  //   socket.send(JSON.stringify({
+  //     id:id[0].id,
+  //     username: id[0].title,
+  //     textmessage: Messange,
+  //     method: "connection"
+  //   }))
+  // }
 
-  socket.onmessage = (event) => {
-     let msg =JSON.parse(event.data)
-    console.log(msg.textmessage);
-    //console.log(`User id ${msg.id} connected`);  
-  
+  //  socket.onmessage = (event) => {
+  //     let msg =JSON.parse(event.data)
+  //    // console.log(msg);
+  //   // console.log(`User id ${msg.id} connected`);  
+  //  }
  setChatPersone(
    ChatPersone.concat([{
       id: id.map(todo=>{return todo.id}),
       Name:id.map(todo=>{return todo.title}),
-      message:msg.textmessage
+      message:Messange
    }])
   )
-  }
+  
  setTodos(todos.map(todo=>{
    //console.log(id.map(todo=>{return todo.id})[0],'Айди пользователя:',todo.id)
     if(id.map(todo=>{return todo.id})[0]===todo.id){
@@ -113,12 +112,8 @@ function ShowMessange(Messange,id){
     }
    return todo
  }))
-
-
- // console.log(ChatPersone);
-  //<Chat onClick={a} MessageX={ChatPersone} OnPep={Pepap} ReadMessange={ShowMessange} Me={autorizeyt} ></Chat>
- // <App isLoggedIn={1}/>
 }
+
 
   let [isLoggedIn,setLoggerIn] = React.useState(0);
   if (isLoggedIn===0) {//запуск окна с активными чатами
