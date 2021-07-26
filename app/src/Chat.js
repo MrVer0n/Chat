@@ -13,9 +13,10 @@ const messagesEnd = useRef(null);
 //   messagesEnd.current.scrollIntoView({behavior: 'smooth'});
 // };
 
-// useEffect(() => {
+// React.useEffect(() => {
 //   scrollToBottom();
-// });
+// })
+
 const [drag, setDrag]=useState(false)
 function dragStart(e){
   e.preventDefault()
@@ -86,7 +87,7 @@ React.useEffect(()=> {
   if (!connected) {
     connect()
   }
-},[])
+})
 
 return (  
   <div className="all"> 
@@ -112,7 +113,8 @@ return (
                                 Пользователь {mess.username} подключился
                             </div>
                             : <div className="message">
-                               <br/>{mess.username}: <br/> {mess.message}
+                              <p>{mess.username}:<br/>{mess.message}</p>
+
                             </div>
                         }
                     </div>
